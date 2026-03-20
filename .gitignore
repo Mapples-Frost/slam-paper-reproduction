@@ -1,0 +1,18 @@
+# datasets
+datasets/
+*.bag
+
+# catkin build products
+catkin_ws/build/
+catkin_ws/devel/
+catkin_ws/install/
+catkin_ws/logs/
+
+# third-party source code
+catkin_ws/src/LIO-SAM/
+catkin_ws/src/my_test_pkg/
+
+# temporary files
+*.swp
+*.swo
+*~
