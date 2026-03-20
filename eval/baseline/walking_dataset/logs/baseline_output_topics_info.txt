@@ -1,0 +1,15 @@
+path:        /home/mapples/slam_repro/eval/baseline/walking_dataset/logs/baseline_output_topics.bag
+version:     2.0
+duration:    21:23s (1283s)
+start:       Mar 20 2026 23:35:12.31 (1774020912.31)
+end:         Mar 20 2026 23:56:35.72 (1774022195.72)
+size:        531.0 MB
+messages:    15748
+compression: none [652/652 chunks]
+types:       nav_msgs/Odometry       [cd5e73d190d741a2f92e81eda573aca7]
+             nav_msgs/Path           [6227e2b7e9cce15051f669a5e197bbf7]
+             sensor_msgs/PointCloud2 [1158d486dd51d683ce2f1be655c3c181]
+topics:      /gx5/nav/odom                       6418 msgs    : nav_msgs/Odometry      
+             /lio_sam/mapping/cloud_registered   3110 msgs    : sensor_msgs/PointCloud2
+             /lio_sam/mapping/odometry           3110 msgs    : nav_msgs/Odometry      
+             /lio_sam/mapping/path               3110 msgs    : nav_msgs/Path

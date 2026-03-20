@@ -1,0 +1,34 @@
+path:        /home/mapples/slam_repro/datasets/lio_sam_samples/walking_dataset.bag
+version:     2.0
+duration:    10:55s (655s)
+start:       Nov 22 2019 04:16:18.46 (1574367378.46)
+end:         Nov 22 2019 04:27:14.40 (1574368034.40)
+size:        3.7 GB
+messages:    689090
+compression: none [3312/3312 chunks]
+types:       bond/Status                           [eacc84bf5d65b6777d4c50f463dfb9c8]
+             diagnostic_msgs/DiagnosticArray       [60810da900de1dd6ddd437c3503511da]
+             dynamic_reconfigure/Config            [958f16a05573709014982821e6822580]
+             dynamic_reconfigure/ConfigDescription [757ce9d44ba8ddd801bb30bc456f946f]
+             nav_msgs/Odometry                     [cd5e73d190d741a2f92e81eda573aca7]
+             rosgraph_msgs/Log                     [acffd30cd6b6de30f120938c17c593fb]
+             sensor_msgs/Imu                       [6a62c6daae103f4ff57a132d6f95cec2]
+             sensor_msgs/NavSatFix                 [2d3a8cd499b9b4a0249fb98fd05cfa48]
+             sensor_msgs/PointCloud2               [1158d486dd51d683ce2f1be655c3c181]
+             std_msgs/Int16MultiArray              [d9338d7f523fcb692fae9d0a0e9f067c]
+             velodyne_msgs/VelodyneScan            [50804fc9533a0e579e6322c04ae70566]
+topics:      /diagnostics                                                1299 msgs    : diagnostic_msgs/DiagnosticArray      
+             /gx5/gps/fix                                                2623 msgs    : sensor_msgs/NavSatFix                
+             /gx5/nav/odom                                               6557 msgs    : nav_msgs/Odometry                    
+             /gx5/nav/status                                             6557 msgs    : std_msgs/Int16MultiArray             
+             /imu_correct                                              327859 msgs    : sensor_msgs/Imu                      
+             /imu_raw                                                  327870 msgs    : sensor_msgs/Imu                      
+             /points_raw                                                 6502 msgs    : sensor_msgs/PointCloud2              
+             /rosout                                                      355 msgs    : rosgraph_msgs/Log                     (6 connections)
+             /rosout_agg                                                  338 msgs    : rosgraph_msgs/Log                    
+             /velodyne_nodelet_manager/bond                              2624 msgs    : bond/Status                           (3 connections)
+             /velodyne_nodelet_manager_cloud/parameter_descriptions         1 msg     : dynamic_reconfigure/ConfigDescription
+             /velodyne_nodelet_manager_cloud/parameter_updates              1 msg     : dynamic_reconfigure/Config           
+             /velodyne_nodelet_manager_driver/parameter_descriptions        1 msg     : dynamic_reconfigure/ConfigDescription
+             /velodyne_nodelet_manager_driver/parameter_updates             1 msg     : dynamic_reconfigure/Config           
+             /velodyne_packets                                           6502 msgs    : velodyne_msgs/VelodyneScan

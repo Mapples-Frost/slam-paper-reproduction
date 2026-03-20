@@ -1,0 +1,9 @@
+Type: nav_msgs/Odometry
+
+Publishers: 
+ * /lio_sam_mapOptmization (http://LAPTOP-3U74NIO5:44079/)
+
+Subscribers: 
+ * /lio_sam_imuPreintegration (http://LAPTOP-3U74NIO5:46379/)
+
+

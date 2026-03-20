@@ -1,0 +1,9 @@
+Type: nav_msgs/Odometry
+
+Publishers: 
+ * /play_1774020242486116786 (http://LAPTOP-3U74NIO5:42531/)
+
+Subscribers: 
+ * /record_1774020193733149899 (http://LAPTOP-3U74NIO5:35491/)
+
+
