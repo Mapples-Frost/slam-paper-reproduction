@@ -16,3 +16,4 @@ catkin_ws/src/my_test_pkg/
 *.swp
 *.swo
 *~
+catkin_ws/
