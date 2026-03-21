@@ -1,0 +1,47 @@
+===== SYSTEM INFO =====
+Wed Mar 18 21:34:03 CST 2026
+
+[lsb_release -a]
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.5 LTS
+Release:	22.04
+Codename:	jammy
+
+[whoami]
+mapples
+
+[HOME]
+/home/mapples
+
+[gcc --version]
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+[g++ --version]
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+[cmake --version]
+cmake version 3.22.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+[python3 --version]
+Python 3.10.12
+
+[git --version]
+git version 2.34.1
+
+[which roscore]
+
+[rosversion -d]
+Command 'rosversion' not found, but can be installed with:
+sudo apt install python3-rospkg
+
