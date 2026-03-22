@@ -223,3 +223,80 @@ GitHub 仓库：
 - 编译产物
 - 第三方源码大文件
 - 运行输出 bag
+
+---
+
+## 结果总览
+
+### room_dark_01
+
+在 `room_dark_01` 上，当前已经完成以下对比：
+
+- baseline
+- adaptive `k`
+- adaptive `k` + feature refactor
+- adaptive `k` + feature refactor + dynamic v3
+
+关键结论：
+
+- `adaptive k` 是当前最清晰、最稳定的正向改动
+- 相比 baseline，`adaptive k` 在 `mean`、`rmse`、`max` 上都有小幅改善
+- `feature refactor` 可以稳定运行，但没有明显优于 `adaptive k`
+- `dynamic v3` 已成功接入并可运行，但在该室内静态序列上没有体现出明显额外收益
+
+`room_dark_01` 关键结果：
+
+- baseline: `mean 0.136145`, `rmse 0.148386`, `max 0.284917`
+- adaptive `k`: `mean 0.134612`, `rmse 0.146603`, `max 0.281849`
+- `k + feature refactor`: `mean 0.134606`, `rmse 0.146834`, `max 0.288260`
+- `k + feature refactor + dynamic v3`: `mean 0.134596`, `rmse 0.146802`, `max 0.290208`
+
+详细总结见：
+
+- `eval/formal/room_dark_01/meta/room_dark_01_overall_summary.md`
+
+### street_03
+
+在 `street_03` 上，当前已经完成以下对比：
+
+- baseline
+- current combo (`adaptive k + feature refactor + dynamic v3`)
+
+关键结论：
+
+- `street_03 baseline` 成功跑通，可作为室外参考结果
+- 当前组合版在 `street_03` 上明显退化，说明这一整套组合改动尚未在室外场景中体现出鲁棒收益
+
+`street_03` 关键结果：
+
+- baseline: `mean 0.129208`, `rmse 0.139533`, `max 0.422916`
+- current combo: `mean 0.163851`, `rmse 0.205268`, `max 0.698998`
+
+详细总结见：
+
+- `eval/formal/street_03/meta/street_03_overall_summary.md`
+
+### 当前阶段总结
+
+截至目前，可以得到较稳妥的结论：
+
+- 室内静态场景中，`adaptive k` 是当前最有效的单项改动
+- `feature refactor` 与 `dynamic v3` 已完成系统接入和运行验证
+- 但在现有实现下，这两部分尚未在 `room_dark_01` 和 `street_03` 上表现出明确、稳定的额外收益
+- 尤其在 `street_03` 这种室外序列中，当前组合版相对 baseline 仍然存在明显退化
+
+---
+
+## 运行截图
+
+### room_dark_01
+![room_dark_01](assets/images/room_01.png)
+
+### street_01
+![street_01](assets/images/street_01.png)
+
+### street_02
+![street_02](assets/images/street_02.png)
+
+### street_03
+![street_03](assets/images/street_03.png)
