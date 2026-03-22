@@ -78,107 +78,27 @@ public:
         publishFeatureCloud();
     }
 
-void calculateSmoothness()
-{
-    int cloudSize = extractedCloud->points.size();
-
-    for (int i = 0; i < cloudSize; i++)
+    void calculateSmoothness()
     {
-        cloudCurvature[i] = 0;
-        cloudNeighborPicked[i] = 0;
-        cloudLabel[i] = 0;
-        cloudSmoothness[i].value = 0;
-        cloudSmoothness[i].ind = i;
-    }
-
-    std::vector<std::vector<int>> ringColToIndex(N_SCAN, std::vector<int>(Horizon_SCAN, -1));
-
-    for (int ring = 0; ring < N_SCAN; ring++)
-    {
-        int startIdx = cloudInfo.startRingIndex[ring];
-        int endIdx   = cloudInfo.endRingIndex[ring];
-
-        for (int i = startIdx; i <= endIdx; i++)
+        int cloudSize = extractedCloud->points.size();
+        for (int i = 5; i < cloudSize - 5; i++)
         {
-            int col = cloudInfo.pointColInd[i];
-            if (col >= 0 && col < Horizon_SCAN)
-                ringColToIndex[ring][col] = i;
-        }
-    }
+            float diffRange = cloudInfo.pointRange[i-5] + cloudInfo.pointRange[i-4]
+                            + cloudInfo.pointRange[i-3] + cloudInfo.pointRange[i-2]
+                            + cloudInfo.pointRange[i-1] - cloudInfo.pointRange[i] * 10
+                            + cloudInfo.pointRange[i+1] + cloudInfo.pointRange[i+2]
+                            + cloudInfo.pointRange[i+3] + cloudInfo.pointRange[i+4]
+                            + cloudInfo.pointRange[i+5];            
 
-    auto pointVec = [&](int idx) -> Eigen::Vector3f
-    {
-        const auto &pt = extractedCloud->points[idx];
-        return Eigen::Vector3f(pt.x, pt.y, pt.z);
-    };
+            cloudCurvature[i] = diffRange*diffRange;//diffX * diffX + diffY * diffY + diffZ * diffZ;
 
-    auto addIfValid = [&](std::vector<int> &neighbors, int ring, int col)
-    {
-        if (ring < 0 || ring >= N_SCAN) return;
-        if (col < 0 || col >= Horizon_SCAN) return;
-
-        int idx = ringColToIndex[ring][col];
-        if (idx >= 0)
-            neighbors.push_back(idx);
-    };
-
-    for (int ring = 0; ring < N_SCAN; ring++)
-    {
-        int startIdx = cloudInfo.startRingIndex[ring];
-        int endIdx   = cloudInfo.endRingIndex[ring];
-
-        for (int i = startIdx; i <= endIdx; i++)
-        {
-            if (ring == 0 || ring == N_SCAN - 1)
-            {
-                cloudNeighborPicked[i] = 1;
-                continue;
-            }
-
-            int col = cloudInfo.pointColInd[i];
-            std::vector<int> neighbors;
-            neighbors.reserve(16);
-
-            // same ring: left/right 3 points
-            for (int dc = -3; dc <= 3; dc++)
-            {
-                if (dc == 0) continue;
-                addIfValid(neighbors, ring, col + dc);
-            }
-
-            // adjacent rings: corresponding point and +/-2 neighbors
-            for (int dc = -2; dc <= 2; dc++)
-            {
-                addIfValid(neighbors, ring - 1, col + dc);
-                addIfValid(neighbors, ring + 1, col + dc);
-            }
-
-            if (neighbors.size() < 8)
-            {
-                float diffRange = cloudInfo.pointRange[i-5] + cloudInfo.pointRange[i-4]
-                                + cloudInfo.pointRange[i-3] + cloudInfo.pointRange[i-2]
-                                + cloudInfo.pointRange[i-1] - cloudInfo.pointRange[i] * 10
-                                + cloudInfo.pointRange[i+1] + cloudInfo.pointRange[i+2]
-                                + cloudInfo.pointRange[i+3] + cloudInfo.pointRange[i+4]
-                                + cloudInfo.pointRange[i+5];
-
-                cloudCurvature[i] = diffRange * diffRange;
-                cloudSmoothness[i].value = cloudCurvature[i];
-                continue;
-            }
-
-            Eigen::Vector3f center = pointVec(i);
-            Eigen::Vector3f diffSum = Eigen::Vector3f::Zero();
-
-            for (int idx : neighbors)
-                diffSum += (pointVec(idx) - center);
-
-            float denom = std::max(center.norm(), 1e-3f) * static_cast<float>(neighbors.size());
-            cloudCurvature[i] = diffSum.squaredNorm() / denom;
+            cloudNeighborPicked[i] = 0;
+            cloudLabel[i] = 0;
+            // cloudSmoothness for sorting
             cloudSmoothness[i].value = cloudCurvature[i];
+            cloudSmoothness[i].ind = i;
         }
     }
-}
 
     void markOccludedPoints()
     {
