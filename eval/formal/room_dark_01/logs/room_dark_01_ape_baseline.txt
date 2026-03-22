@@ -1,0 +1,35 @@
+--------------------------------------------------------------------------------
+Loaded 5621 stamps and poses from: eval/formal/room_dark_01/gt/room_dark_01_gt_tum.txt
+Loaded 555 stamps and poses from: eval/formal/room_dark_01/traj/room_dark_01_lio_baseline.tum
+--------------------------------------------------------------------------------
+Synchronizing trajectories...
+Found 547 of max. 555 possible matching timestamps between...
+	eval/formal/room_dark_01/gt/room_dark_01_gt_tum.txt
+and:	eval/formal/room_dark_01/traj/room_dark_01_lio_baseline.tum
+..with max. time diff.: 0.05 (s) and time offset: 0.0 (s).
+--------------------------------------------------------------------------------
+Aligning using Umeyama's method...
+Rotation of alignment:
+[[-0.99920446  0.03497686 -0.0191591 ]
+ [-0.03439412 -0.99895964 -0.0299446 ]
+ [-0.02018653 -0.02926181  0.99936793]]
+Translation of alignment:
+[0.26767841 0.61414792 0.97126919]
+Scale correction: 1.0
+--------------------------------------------------------------------------------
+Compared 547 absolute pose pairs.
+Calculating APE for translation part pose relation...
+--------------------------------------------------------------------------------
+APE w.r.t. translation part (m)
+(with SE(3) Umeyama alignment)
+
+       max	0.284917
+      mean	0.136145
+    median	0.131400
+       min	0.022567
+      rmse	0.148386
+       sse	12.043999
+       std	0.059015
+
+--------------------------------------------------------------------------------
+Saving results to eval/formal/room_dark_01/logs/room_dark_01_ape_baseline.zip...
