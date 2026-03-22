@@ -1,0 +1,35 @@
+--------------------------------------------------------------------------------
+Loaded 5621 stamps and poses from: /home/mapples/slam_repro/eval/formal/room_dark_01/gt/room_dark_01_gt_tum.txt
+Loaded 555 stamps and poses from: /home/mapples/slam_repro/eval/formal/room_dark_01/traj/room_dark_01_lio_adaptive_k.tum
+--------------------------------------------------------------------------------
+Synchronizing trajectories...
+Found 547 of max. 555 possible matching timestamps between...
+	/home/mapples/slam_repro/eval/formal/room_dark_01/gt/room_dark_01_gt_tum.txt
+and:	/home/mapples/slam_repro/eval/formal/room_dark_01/traj/room_dark_01_lio_adaptive_k.tum
+..with max. time diff.: 0.05 (s) and time offset: 0.0 (s).
+--------------------------------------------------------------------------------
+Aligning using Umeyama's method...
+Rotation of alignment:
+[[-0.99919721  0.03567013 -0.01823675]
+ [-0.03516203 -0.99900425 -0.02746163]
+ [-0.01919815 -0.02679834  0.99945649]]
+Translation of alignment:
+[0.26948967 0.6149667  0.97197432]
+Scale correction: 1.0
+--------------------------------------------------------------------------------
+Compared 547 absolute pose pairs.
+Calculating APE for translation part pose relation...
+--------------------------------------------------------------------------------
+APE w.r.t. translation part (m)
+(with SE(3) Umeyama alignment)
+
+       max	0.281849
+      mean	0.134612
+    median	0.130423
+       min	0.024175
+      rmse	0.146603
+       sse	11.756432
+       std	0.058070
+
+--------------------------------------------------------------------------------
+Saving results to /home/mapples/slam_repro/eval/formal/room_dark_01/logs/room_dark_01_ape_adaptive_k.zip...
